@@ -11,6 +11,7 @@ import {
 
 import Logo from '../assets/logo1.png'
 import Background from '../assets/BackGround2.png'
+import { biometric } from '../helper/biometric';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -48,7 +49,9 @@ const Login = ({ navigation }) => {
                         >
                             <Text style={styles.textLogin}>Login</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.finger}>
+                        <TouchableOpacity
+                            onPress={biometric}
+                            style={styles.finger}>
                             <Icon
                                 name="fingerprint"
                                 size={40}
