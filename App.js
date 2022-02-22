@@ -10,10 +10,31 @@ import LoginScreen from './src/screens/Login';
 import Homepage from './src/screens/Homepage';
 import News from './src/screens/News';
 import Profile from './src/screens/Profile';
+import Settings from './src/screens/Settings';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
+
+const RootDrawer = () => {
+  return (
+    <Drawer.Navigator 
+      initialRouteName="Profile"
+      screenOptions={{headerShown: false,}}
+      >
+    <Drawer.Screen
+      name="Profile"
+      component={Profile}
+      options={{ drawerLabel: 'Profile' }}
+    />
+    <Drawer.Screen
+      name="Settings"
+      component={Settings}
+      options={{ drawerLabel: 'Settings' }}
+    />
+  </Drawer.Navigator>
+  )
+}
 
 const RootHome = () => {
   return (
@@ -48,7 +69,7 @@ const RootHome = () => {
       />
       <Tab.Screen
         name="profile"
-        component={Profile}
+        component={RootDrawer}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color, size }) => (
